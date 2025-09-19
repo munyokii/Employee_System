@@ -9,7 +9,7 @@ const Login = () => {
     email: '',
     password: '',
   })
-
+  const [error, setError] = useState()
   const navigate = useNavigate()
   axios.defaults.withCredentials = true;
   const handleSubmit = (event) => {
@@ -17,7 +17,11 @@ const Login = () => {
 
     axios.post('http://localhost:3000/auth/adminlogin', values)
     .then(result => {
-      navigate('/dashboard')
+      if(result.data.loginStatus) {
+        navigate('/dashboard') 
+      } else {
+        setError(result.data.Error)
+      }
     })
     .catch(err => console.log(err))
   }
@@ -26,6 +30,9 @@ const Login = () => {
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
       <div className='p-3 rounded w-25 border loginForm'>
         <h2 className='text-center'>Login Page</h2>
+        <div className='text-warning'>
+          { error && error }
+        </div>
         <form action="" onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor="email"><strong>Email:</strong></label>
