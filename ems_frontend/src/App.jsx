@@ -1,8 +1,14 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import Login from './Components/Login'
 import Dashboard from './Components/Dashboard'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './Components/Home'
+import Employee from './Components/Employee'
+import Category from './Components/Category'
+import Profile from './Components/Profile'
 
 function App() {
   
@@ -11,7 +17,12 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/adminlogin" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />}>
+        <Route path='' element={<Home />} />
+        <Route path='/dashboard/employee' element={<Employee />} />
+        <Route path='/dashboard/category' element={<Category />} />
+        <Route path='/dashboard/profile' element={<Profile />} />
+      </Route>
     </Routes>
     </BrowserRouter>
   )
