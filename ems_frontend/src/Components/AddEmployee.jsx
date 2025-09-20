@@ -28,7 +28,27 @@ const AddEmployee = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    formData.append('name', employee.name);
+    formData.append('email', employee.email);
+    formData.append('password', employee.password);
+    formData.append('address', employee.address);
+    formData.append('salary', employee.salary);
+    formData.append('image', employee.image);
+    formData.append('category_id', employee.category_id);
+
+    axios.post('http://localhost:3000/auth/add_employee', formData)
+    .then(result => {
+        if(result.data.Status) {
+            navigate('/dashboard/employee')
+        } else {
+            alert(result.data.Error)
+        }
+    })
+    .catch(err => console.log(err))
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
