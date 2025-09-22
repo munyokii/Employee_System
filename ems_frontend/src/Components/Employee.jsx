@@ -69,7 +69,7 @@ const Employee = () => {
                     Edit
                   </Link>
                   <button
-                    className="btn btn-warning btn-sm"
+                    className="btn btn-danger btn-sm"
                     onClick={() => handleDelete(e.id)}
                   >
                     Delete
