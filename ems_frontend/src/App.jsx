@@ -14,6 +14,7 @@ import AddCategory from './Components/AddCategory'
 import AddEmployee from './Components/AddEmployee'
 import EditEmployee from './Components/EditEmployee'
 import EmployeeLogin from './Components/EmployeeLogin'
+import EmployeeDetail from './Components/EmployeeDetail'
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
       <Route path='/' element={<Start />}></Route>
       <Route path="/adminlogin" element={<Login />} />
       <Route path='/employee_login' element={<EmployeeLogin />}></Route>
+      <Route path='/employee_detail/:id' element={<EmployeeDetail />}></Route>
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path='' element={<Home />} />
         <Route path='/dashboard/employee' element={<Employee />} />
