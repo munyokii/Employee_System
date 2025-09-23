@@ -17,7 +17,6 @@ import EmployeeLogin from './Components/EmployeeLogin'
 import EmployeeDetail from './Components/EmployeeDetail'
 
 function App() {
-  
 
   return (
     <BrowserRouter>

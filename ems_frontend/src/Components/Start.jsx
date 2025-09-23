@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 useEffect
 
 const Start = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get('http://localhost:3000/verify')

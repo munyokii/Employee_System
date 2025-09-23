@@ -14,8 +14,8 @@ router.post('/adminlogin', (req, res) => {
     if (result.length > 0) {
       const email = result[0].email;
       const token = jwt.sign(
-        { role: 'admin', email: email }, 
-        "jwt_secret_key", 
+        { role: 'admin', email: email, id: result[0].id }, 
+        "use_a_more_secure_secret_key", 
         { expiresIn: '1d' }
       );
       res.cookie('token', token)
