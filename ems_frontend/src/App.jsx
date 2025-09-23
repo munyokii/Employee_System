@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Start from './Components/Start'
 import Login from './Components/Login'
 import Dashboard from './Components/Dashboard'
 import Home from './Components/Home'
@@ -12,6 +13,7 @@ import Profile from './Components/Profile'
 import AddCategory from './Components/AddCategory'
 import AddEmployee from './Components/AddEmployee'
 import EditEmployee from './Components/EditEmployee'
+import EmployeeLogin from './Components/EmployeeLogin'
 
 function App() {
   
@@ -19,7 +21,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+      <Route path='/' element={<Start />}></Route>
       <Route path="/adminlogin" element={<Login />} />
+      <Route path='/employee_login' element={<EmployeeLogin />}></Route>
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path='' element={<Home />} />
         <Route path='/dashboard/employee' element={<Employee />} />
